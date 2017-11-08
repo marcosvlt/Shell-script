@@ -4,7 +4,7 @@
 # ###################################
 
 
-SWAPOUT_ACTIVITY=$(vmstat 1 5 | tail -n 4 | awk '{ sum += $8 / 5 } END { print sum }' | awk -F "." '{print $1}')
+SWAPOUT_ACTIVITY=$(vmstat 1 5 | tail -n 5 | awk '{ sum += $8 / 5 } END { print sum }' | awk -F "." '{print $1}')
 SWAP_CRITICAL=1000
 
 if [ $SWAPOUT_ACTIVITY -lt $SWAP_CRITICAL  ]; then
