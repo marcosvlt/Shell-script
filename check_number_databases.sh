@@ -9,20 +9,20 @@ if [ $? -eq 0 ]; then
 
 
         if [ $BANCOS -lt 1800 ]; then
-                 STATUS="0"
-                 echo -e "OK - Numero de Banco de Dados. $BANCOS "
+              
+              echo -e "OK - Numero de Banco de Dados. $BANCOS "
 
         elif [ $BANCOS -ge 1800 ] && [ $BANCOS -lt 2000 ]; then
-                STATUS="1"
+              
                 echo  "Warning - Numero de Banco de Dados: $BANCOS"
           else
-                STATUS="2"
+              
                 echo  "Critical - Numero de Banco de Dados: $BANCOS"
         fi
 
 else
 
-        STATUS="2"
+        
         echo "Critical - Problema de conexão  no script de verificação"
 
 fi
