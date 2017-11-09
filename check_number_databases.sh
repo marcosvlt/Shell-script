@@ -5,14 +5,17 @@
 
 
 BANCOS=`mysql -P3306 -USER -p'PASSWORD' -e "select count(*) from information_schema.SCHEMATA;" | grep -v  count`
+OK_NUMBER=1800
+WARNING1=1800
+WARNING2=2000
 if [ $? -eq 0 ]; then
 
 
-        if [ $BANCOS -lt 1800 ]; then
+        if [ $BANCOS -lt OK_NUMBER ]; then
               
               echo -e "OK - Numero de Banco de Dados. $BANCOS "
 
-        elif [ $BANCOS -ge 1800 ] && [ $BANCOS -lt 2000 ]; then
+        elif [ $BANCOS -ge WARNING1 ] && [ $BANCOS -lt WARNING2 ]; then
               
                 echo  "Warning - Numero de Banco de Dados: $BANCOS"
           else
