@@ -2,7 +2,7 @@
 
 SCANDIR="/home"
 
-LOG_FILE="/var/log/manual_clamscan.log"
+LOG_FILE="/var/log/clamscan_daily.log"
 
 echo "------DATE: `date` ------" >> $LOG_FILE
 clamscan -i -r $SCANDIR >> $LOG_FILE
