@@ -3,31 +3,35 @@
 ORIGEM=$1
 DESTINO=$2
 NOME=$3
+LOG_FILE=(/var/log/backup/$NOME.log)
+
+mkdir /var/log/backup >> /dev/null 2>&1
+touch /var/log/backup_$NOME.log
 
 if [ "$ORIGEM" == "" -o "$DESTINO" == "" -o "$NOME" == "" ]; then
         echo "Ferramenta de backup"
         echo "Uso Origem Destino Nome"
         echo -e "Erro: Script sem argumentos\nUso Origem Destino Nome\nBackup NOK
-        " >  /var/log/backup_fedora.log
+        " >  $LOG_FILE
         exit 1
   fi
 
 if [ ! -d $ORIGEM ]; then
 
-        echo "Erro:Pasta de origem \"$ORIGEM\" inexistente" > /var/log/backup_fedora.log
+        echo "Erro:Pasta de origem \"$ORIGEM\" inexistente" > $LOG_FILE
         exit 1
 fi
 
 if [ ! -d $DESTINO ]; then
-        echo "Erro: Pasta de destino \"$DESTINO\" inexistente" > /var/log/backup_fedora.log
+        echo "Erro: Pasta de destino \"$DESTINO\" inexistente" > $LOG_FILE
         exit 1
 fi
 
-tar cvzf  /$DESTINO/$NOME.$(date +%Y%m%d-%H%M%S).tar.gz  $ORIGEM > /var/log/backup_fedora.log 2>&1
+tar cvzf  /$DESTINO/$NOME.$(date +%Y%m%d-%H%M%S).tar.gz  $ORIGEM > $LOG_FILE 2>&1
         if [[ $? = 0 ]]; then
-                echo "Backup OK" >> /var/log/backup_fedora.log
+                echo "Backup OK" >> $LOG_FILE
         else
-                echo "Backup NOK" >> /var/log/backup_fedora.log
+                echo "Backup NOK" >> $LOG_FILE
         fi
 
 # Deleta arquivos com mais de 5 dias
