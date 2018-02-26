@@ -1,4 +1,11 @@
 #!/bin/sh
+###########################
+#
+# Automatic backup script. 
+# Used with cron
+# Example: ./backup_cron_tar.sh ORIGEM DESTINATION NAME
+#
+###########################
 
 ORIGEM=$1
 DESTINO=$2
