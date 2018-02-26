@@ -7,13 +7,14 @@
 #
 ###########################
 
+
 ORIGEM=$1
 DESTINO=$2
 NOME=$3
 LOG_FILE=(/var/log/backup/$NOME.log)
 
 mkdir /var/log/backup >> /dev/null 2>&1
-touch /var/log/backup_$NOME.log
+touch $LOG_FILE
 
 if [ "$ORIGEM" == "" -o "$DESTINO" == "" -o "$NOME" == "" ]; then
         echo "Ferramenta de backup"
@@ -34,7 +35,8 @@ if [ ! -d $DESTINO ]; then
         exit 1
 fi
 
-tar cvzf  /$DESTINO/$NOME.$(date +%Y%m%d-%H%M%S).tar.gz  $ORIGEM > $LOG_FILE 2>&1
+tar cvzf  /$DESTINO/$NOME.$(date +%Y%m%d-%H%M%S).tar.gz  $ORIGEM  > $LOG_FILE 2>&1
+date >> $LOG_FILE
         if [[ $? = 0 ]]; then
                 echo "Backup OK" >> $LOG_FILE
         else
