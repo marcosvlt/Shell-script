@@ -15,3 +15,6 @@ A collection of useful scripts for SysAdmin
 05 18 * * * /root/scripts/backup_home_tar.sh ORIGEM DESTINATION NAME
 
 ---
+
+
+https://www.shellcheck.net/
