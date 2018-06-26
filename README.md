@@ -18,3 +18,5 @@ A collection of useful scripts for SysAdmin
 
 
 https://www.shellcheck.net/
+
+https://www.codacy.com/
