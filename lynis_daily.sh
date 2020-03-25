@@ -7,7 +7,7 @@ LOG_DIR="/var/log/lynis"
 LOGFILE="$LOG_DIR/report-${HOST}.${DATE}"
 DATA="$LOG_DIR/report-data-${HOST}.${DATE}.txt"
 EMAILMSG="Lynis Marcos Notebook.";
-EMAILTO="marcos.rosa@qualitor.com.br";
+EMAILTO="mail@mail.com";
 
 
 mkdir /var/log/lynis
