@@ -1,7 +1,9 @@
-#!/bin/bash -x
+#!/bin/bash
 LOGFILE="/var/log/clamav/clamav-script-$(date +'%Y-%m-%d_%H%M').log";
 DIRTOSCAN="/";
 INFECTEDDIR="/etc/clamav/infected"
+EMAILMSG="ClamavScan Marcos";
+EMAILTO="mail@mail.com";
 
 echo "
 $(date)
@@ -30,3 +32,5 @@ else
 fi
 
 echo "Complete at $(date)" >> $LOGFILE
+
+mail -A "$LOGFILE" -s "$EMAILMSG" "$EMAILTO" < /dev/null
