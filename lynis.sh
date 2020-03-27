@@ -24,7 +24,7 @@ if [ -f /var/log/lynis-report.dat ]; then
     mv /var/log/lynis-report.dat ${DATA}
 fi
 
-mailx -s "$EMAILMSG" -A "$LOGFILE"  "$EMAILTO" 
+mailx -s "$EMAILMSG" -A "$LOGFILE"  "$EMAILTO" < /dev/null
 
 
 
