@@ -19,13 +19,7 @@ fi
 # Run Lynis
 lynis audit system --cronjob >> ${LOGFILE}
 
-# Optional step: Move report file if it exists
-if [ -f /var/log/lynis-report.dat ]; then
-    mv /var/log/lynis-report.dat ${DATA}
-fi
 
 mailx -s "$EMAILMSG" -A "$LOGFILE"  "$EMAILTO" < /dev/null
 
 
-
-# The End
