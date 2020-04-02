@@ -17,7 +17,7 @@ else
 fi
 
 # Run Lynis
-lynis audit system --cronjob >> ${LOGFILE}
+/usr/sbin/lynis audit system --cronjob >> ${LOGFILE}
 
 
 mailx -s "$EMAILMSG" -A "$LOGFILE"  "$EMAILTO" < /dev/null
