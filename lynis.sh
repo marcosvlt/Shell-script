@@ -3,9 +3,9 @@
 DATE=$(date +%Y%m%d)
 HOST=$(hostname)
 LOGDIR="/var/log/lynis"
-LOGFILE="$LOGDIR/report-${HOST}.${DATE}"
+LOGFILE="$LOGDIR/report-${HOST}.${DATE}.txt"
 DATA="$LOGDIR/report-data-${HOST}.${DATE}.txt"
-EMAILMSG="Lynis Marcos ";
+EMAILMSG="Lynis $(hostname) ";
 EMAILTO="mail@mail.com.br";
 
 
