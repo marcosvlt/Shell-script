@@ -16,7 +16,7 @@ case "$CRON_DAILY_RUN" in
         if [ -s "$OUTFILE" -a -n "$REPORT_EMAIL" ]; then
                 mailx -s "Cron Daily RkHunter $(hostname)" -A $OUTFILE $REPORT_EMAIL < /dev/null
         else
-                mail -s "Cront Daily Rkhunter - EVERYTHING OK " $REPORT_EMAIL  </dev/null
+                mail -s "Cront Daily Rkhunter $(hostname) - EVERYTHING OK " $REPORT_EMAIL  </dev/null
         fi
         rm -f $OUTFILE
         ;;
