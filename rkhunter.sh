@@ -11,10 +11,10 @@ NICE=0
 
 case "$CRON_DAILY_RUN" in
      [YyTt]*)
-        OUTFILE=`mktemp` || exit 1
+        OUTFILE=`mktemp`.$(hostname).txt || exit 1
         /usr/bin/nice -n $NICE $RKHUNTER --cronjob --report-warnings-only --appendlog > $OUTFILE
         if [ -s "$OUTFILE" -a -n "$REPORT_EMAIL" ]; then
-                mailx -s "Cron Daily RkHunter" -A $OUTFILE $REPORT_EMAIL < /dev/null
+                mailx -s "Cron Daily RkHunter $(hostname)" -A $OUTFILE $REPORT_EMAIL < /dev/null
         else
                 mail -s "Cront Daily Rkhunter - EVERYTHING OK " $REPORT_EMAIL  </dev/null
         fi
