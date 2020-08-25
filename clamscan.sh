@@ -1,5 +1,5 @@
 #!/bin/bash
-LOGFILE="/var/log/clamav/clamav-script-$(date +'%Y-%m-%d_%H%M').log";
+LOGFILE="/var/log/clamav/clamav-script-$(date +'%Y-%m-%d_%H%M').$(hostname).log"
 DIRTOSCAN="/";
 INFECTEDDIR="/etc/clamav/infected"
 EMAILMSG="ClamavScan $(hostname)";
